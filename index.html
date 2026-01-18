@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agentcopilot — Agent Workflow Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .section {
+            text-align: left;
+            padding: 30px;
+            border: 1px solid #ecf0f1;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .section:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.1);
+        }
+        .section h2 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        a:hover {
+            background: #2980b9;
+        }
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 agentcopilot</h1>
+        <p class="subtitle">En arbetsflödesmall för agentiska Copilot Chat-baserade projekt</p>
+
+        <div class="sections">
+            <!-- Guide Section -->
+            <div class="section">
+                <h2>📖 Guide</h2>
+                <p>Kom igång med rollen-baserade arbetsflöden och Copilot Chat.</p>
+                <div class="links">
+                    <a href="README.md">→ Läs huvudguiden</a>
+                </div>
+            </div>
+
+            <!-- Documentation Section -->
+            <div class="section">
+                <h2>📚 Dokumentation</h2>
+                <p>Detaljerade definitioner av roller, arbetsflöde och promptmallar.</p>
+                <div class="links">
+                    <a href="docs/README.md">→ Dokumentationsindex</a>
+                    <a href="docs/ROLES.md">→ Roller och ansvar</a>
+                    <a href="docs/WORKFLOW.md">→ Arbetsflöde och gates</a>
+                </div>
+            </div>
+
+            <!-- Prompts Section -->
+            <div class="section">
+                <h2>🎯 Prompts</h2>
+                <p>Rollspecifika prompter för Copilot Chat.</p>
+                <div class="links">
+                    <a href=".github/prompts/analyst.prompt.md">→ Analyst</a>
+                    <a href=".github/prompts/architect.prompt.md">→ Architect</a>
+                    <a href=".github/prompts/planner.prompt.md">→ Planner</a>
+                    <a href=".github/prompts/engineer.prompt.md">→ Engineer</a>
+                    <a href=".github/prompts/qa.prompt.md">→ QA</a>
+                    <a href=".github/prompts/reviewer.prompt.md">→ Reviewer</a>
+                    <a href=".github/prompts/writer.prompt.md">→ Writer</a>
+                    <a href=".github/prompts/data-analyst.prompt.md">→ Data Analyst</a>
+                </div>
+            </div>
+
+            <!-- Quick Start Section -->
+            <div class="section">
+                <h2>⚡ Snabbstart</h2>
+                <p>Börja använda arbetsflödet på 3 steg.</p>
+                <div class="links">
+                    <a href="README.md#användning-i-copilot-chat">→ Användning i Copilot Chat</a>
+                    <a href="docs/ROLES_ONE_PAGER.md">→ One-pager</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Tipps:</strong> Läs <a href="README.md" style="color: #3498db;">README</a> för introduktion. Använd rollflödet Analyst → Architect → Planner → Engineer → QA → Reviewer → Writer.</p>
+            <p style="margin-top: 15px;">Repo: <a href="https://github.com/BUsavsjo/agentcopilot" style="color: #3498db;">github.com/BUsavsjo/agentcopilot</a></p>
+            <p style="margin-top: 10px; font-size: 0.85em;">Licens: <a href="LICENSE" style="color: #3498db;">MIT License</a></p>
+        </div>
+    </div>
+</body>
+</html>
