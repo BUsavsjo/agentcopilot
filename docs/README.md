@@ -4,6 +4,16 @@ En landningssida för projektets dokumentation och arbetsflöde.
 
 ---
 
+## 🔍 Börja här — Välj rätt roll
+
+**Osäker på vilken roll du ska ta?** Använd denna guide:
+
+- [**Router — Välj rätt roll**](../.github/prompts/router.prompt.md) ← Börja här!
+
+Router hjälper dig att diagnostisera situationen och rekommendera nästa steg.
+
+---
+
 ## Roller och ansvar
 
 - [docs/ROLES.md](ROLES.md)
@@ -12,8 +22,9 @@ En landningssida för projektets dokumentation och arbetsflöde.
 ## Arbetsflöde
 
 - [docs/WORKFLOW.md](WORKFLOW.md)
-- QA‑stöd: (kommer) [docs/QA_CHECKLIST.md](QA_CHECKLIST.md)
-- Release Notes: (kommer) [docs/RELEASE_NOTES.md](RELEASE_NOTES.md)
+- [docs/QA_CHECKLIST.md](QA_CHECKLIST.md) — QA-roll kontrollista
+- [docs/RELEASE_NOTES.md](RELEASE_NOTES.md) — Release-process och mall
+- [docs/MIGRATION_CHECKLIST.md](MIGRATION_CHECKLIST.md) — Anpassa mallen för nytt projekt
 
 ## Prompts och chat
 
@@ -22,8 +33,10 @@ En landningssida för projektets dokumentation och arbetsflöde.
 
 ## Användning
 
-- Översiktlig chat‑guide: se [README.md](../README.md)
-- Följ ordningen Analyst → Architect → Planner → Engineer → QA → Reviewer → Writer
+- **Första steget:** Börja med [Router](../.github/prompts/router.prompt.md) om du är osäker på vilken roll att välja
+- **Sedan:** Följ rollen-ordningen: Analyst → Architect → Planner → Engineer → QA → Reviewer → Writer
+- **Efter varje roll:** Kör Router igen för att välja nästa steg, eller meddela Copilot Chat `/router` för rekommendation
+- **Fullständig guide:** Se [README.md](../README.md) för snabbstart och arbetsflöde
 
 ---
 

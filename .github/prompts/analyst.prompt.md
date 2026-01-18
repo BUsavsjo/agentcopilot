@@ -11,5 +11,9 @@ Förväntat output:
 - Kort nulägesanalys (5–10 meningar)
 - Lista över risker/oklarheter/teknisk skuld
 
+Nästa steg:
+→ **Router** för att välja rätt nästa roll när denna analys är godkänd av Gate A.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.
+
 Tips:
 - Länka specifika filer för fokus (t.ex. [docs/ROLES.md](docs/ROLES.md)).

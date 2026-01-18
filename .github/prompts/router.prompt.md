@@ -1,0 +1,199 @@
+# Router — Välj rätt roll
+
+Mandat: Diagnostisera situation och rekommendera nästa roll.
+Begränsningar: Ingen implementation; endast rådgivning.
+
+Primär prompt:
+
+> Agera som Router. Baserat på denna situation, vilken roll bör ta nästa steg? Ge kort motivering och nästa prompt att köra.
+
+---
+
+## Välj roll baserat på situation
+
+Använd denna guide för att snabbt identifiera rätt roll:
+
+### 🔍 Börja här — Du har ett problem eller en idé
+
+**Situation:** "Jag vet inte var vi är eller vad som är fel"
+→ **Startrollen: Analyst** (`/analyst`)
+
+Analytikern läser och sammanfattar nuläget innan något annat görs.
+
+---
+
+### 🏗️ Du har en nulägesanalys — Vad ska vi göra?
+
+**Situation:** "Analytikern har gjort rapport. Vad är nästa steg?"
+→ **Arkitekten: Architect** (`/architect`)
+
+Arkitekten föreslår minimal, motiverad riktning baserat på analysen.
+
+---
+
+### 📋 Du har arkitekturplan — Hur gör vi det?
+
+**Situation:** "Arkitekten har givit riktning. Hur bryter vi ned det i steg?"
+→ **Planering: Planner** (`/planner`)
+
+Planeraren bryter ned arkitekturplanen i små, verifierbara steg.
+
+---
+
+### 💻 Du har plan — Implementera!
+
+**Situation:** "Planeraren har gjort steg-lista. Jag är redo att koda."
+→ **Implementering: Engineer** (`/engineer`)
+
+Ingenjören implementerar ett steg i taget enligt planen.
+
+---
+
+### ✅ Kod är pushad — Verifiera att det fungerar
+
+**Situation:** "Jag har implementerat steg N. Funkar det?"
+→ **Testning: QA** (`/qa`)
+
+QA-personen testar, verifierar och bedömer regressionsrisk.
+
+---
+
+### 👁️ Tester är klara — Granska koden
+
+**Situation:** "QA säger att det fungerar. Men är koden bra?"
+→ **Granskning: Reviewer** (`/reviewer`)
+
+Reviewern granskar kod mot stil, arkitektur och säkerhet innan merge.
+
+---
+
+### 📖 Kod är godkänd — Uppdatera dokumentation
+
+**Situation:** "Koden är granskad och godkänd. Vad behöver dokumenteras?"
+→ **Dokumentation: Writer** (`/writer`)
+
+Skribenten uppdaterar README, docs och inline-kommentarer.
+
+---
+
+### 📊 (Valfritt) Vill du mäta effekt?
+
+**Situation:** "Ändringen är live. Vilken effekt hade den?"
+→ **Analys: Data Analyst** (`/data-analyst`)
+
+Data Analyst mäter och rapporterar effekt (parallell roll, efter Engineer).
+
+---
+
+## Snabbkolla — Vilken roll nu?
+
+| Du är här | Nästa roll | Kommando |
+|-----------|-----------|----------|
+| **Början** | Analyst | `/analyst` |
+| **Analys klar** | Architect | `/architect` |
+| **Design klar** | Planner | `/planner` |
+| **Plan klar** | Engineer | `/engineer` |
+| **Kod pushad** | QA | `/qa` |
+| **Tester OK** | Reviewer | `/reviewer` |
+| **Review OK** | Writer | `/writer` |
+| **Merge klar** | Data Analyst (opt) | `/data-analyst` |
+
+---
+
+## Grindar — När är du klar?
+
+Varje roll har en grind som måste vara uppfylld innan nästa roll startar:
+
+- **Gate A** (Analyst) — Rapport är klar ✓
+- **Gate B** (Architect) — Design är klar ✓
+- **Gate C** (Planner) — Plan är klar ✓
+- **Gate D** (Engineer) — Kod är pushad ✓
+- **Gate E** (QA) — Tester är klara ✓
+- **Gate F** (Reviewer) — Review är godkänd ✓
+- **Gate G** (Writer) — Dokumentation är klar ✓
+
+Se [docs/WORKFLOW.md](../docs/WORKFLOW.md) för grindbeskrivningar.
+
+---
+
+## Särskilda situationer
+
+### "Jag fastnade, vet inte vad som är fel"
+
+→ Gå tillbaka till **Analyst** och börja om. Analytikern diagnostiserar nuläget.
+
+Kommando: `/analyst Vilken är nuläget nu? Vad har ändrats sedan sist?`
+
+### "QA eller Reviewer hittar ett problem"
+
+→ Gå tillbaka till **Engineer** för att åtgärda.
+
+Kommando: `/engineer Åtgärda denna feedback: [feedback här]. Vilket är steg N?`
+
+### "Koden är klar men dokumentationen haltar"
+
+→ Gå till **Writer** för att uppdatera docs.
+
+Kommando: `/writer Uppdatera dokumentation för denna ändring: [PR-länk]. Vad behövs?`
+
+### "Vi behöver välja mellan flera vägar"
+
+→ Gå till **Architect** för att jämföra alternativ.
+
+Kommando: `/architect Vi har två möjliga vägar: A) ... eller B) ... Vilken är bättre och varför?`
+
+---
+
+## Typiska arbetsflöden
+
+### Scenario 1: Ny feature från början
+
+```
+1. /analyst — Analysera om feature behövs, vad som finns redan
+2. /architect — Föreslå minimal design
+3. /planner — Bryt ned i steg
+4. /engineer — Implementera steg för steg
+5. /qa — Verifiera varje steg
+6. /reviewer — Granska innan merge
+7. /writer — Uppdatera dokumentation
+8. /data-analyst — Mät effekt (valfritt)
+```
+
+### Scenario 2: Bug-fix eller små ändringar
+
+```
+1. /analyst — Förstå problemet
+2. (Skip architect om klar riktning) /engineer — Åtgärda
+3. /qa — Verifiera fix
+4. /reviewer — Granska
+5. /writer — Uppdatera (om behövs)
+```
+
+### Scenario 3: Refactoring eller teknisk skuld
+
+```
+1. /architect — Föreslå refactoring-strategi
+2. /planner — Bryt ned refactoring i faser
+3. /engineer — Implementera fas för fas
+4. /qa — Verifiera inget brustit
+5. /reviewer — Granska kod-kvalitet
+6. /writer — Uppdatera designdokumentation
+```
+
+---
+
+## Tips
+
+- **Alltid samma ordning**: Analyst → Architect → Planner → Engineer → QA → Reviewer → Writer
+- **Hoppa aldrig över grindar**: Varje grind är viktig för kvalitet
+- **En roll åt gången**: Byt roll mellan steg, aldrig samtidigt
+- **Dokumentera allt**: Använd commit-meddelanden och PR-kommentarer för att spåra flödet
+- **Grindar är inflexibla**: Om grindar inte är uppfyllda, gå tillbaka och fixa
+
+---
+
+Se även:
+- [ROLES.md](../docs/ROLES.md) — Detaljerade rolldefinitioner
+- [WORKFLOW.md](../docs/WORKFLOW.md) — Processöversikt
+- [03-agents.md](../docs/03-agents.md) — Agent-referens med kommando för varje roll
+- [.github/prompts/](../) — Alla 8 prompt-filer

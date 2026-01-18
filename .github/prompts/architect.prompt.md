@@ -11,3 +11,7 @@ Förväntat output:
 - Rekommenderad riktning (1–3 punkter)
 - Avgränsningar och motivering
 - Eventuella alternativ + trade-offs
+
+Nästa steg:
+→ **Router** för att välja rätt nästa roll när denna arkitekturplan är godkänd av Gate B.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.

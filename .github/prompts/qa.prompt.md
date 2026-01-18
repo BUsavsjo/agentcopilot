@@ -11,3 +11,7 @@ Förväntat output:
 - Verifieringslista + resultat
 - Riskbedömning
 - Rekommendation: klar för nästa steg eller åtgärder krävs
+
+Nästa steg:
+→ **Router** för att välja rätt nästa roll när QA är godkänd av Gate E.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.

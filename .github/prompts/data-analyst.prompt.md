@@ -11,3 +11,7 @@ Förväntat output:
 - Observationer/mönster
 - Datakvalitetsnoteringar
 - Nästa steg
+
+Nästa steg:
+→ **Router** för nästa iteration — Data Analyst är en valfri parallell roll. Resultaten rapporteras som feedback för nästa cykel eller används för validering av ändringarnas effekt.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för att välja nästa steg.

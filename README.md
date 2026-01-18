@@ -9,8 +9,36 @@ Den här README:n visar hur du använder Copilot Chat i VS Code på ett pedagogi
 
 ---
 
+## 🚀 Snabbstart — Använd denna mall
+
+**Ny på detta arbetsflöde?** Börja här:
+
+1. **Clone eller fork denna repo** för ditt projekt.
+2. **Verifiera miljö:** Öppna VS Code terminal och kör:
+   ```powershell
+   .\scripts\doctor.ps1
+   ```
+   (Doctor kontrollerar att allt är på plats: Git, Node.js, folders, dependencies.)
+
+3. **Välj en roll** — Meddela Copilot Chat vilken roll du är i:
+   - 🔍 **Osäker på vilken roll?** Se [Router — Välj rätt roll](.github/prompts/router.prompt.md) först.
+   - Sedan meddela Copilot: `/analyst`, `/architect`, `/planner`, `/engineer`, `/qa`, `/reviewer` eller `/writer`
+
+4. **Kör roll-prompten** — Kopiera motsvarande prompt från [.github/prompts/](.github/prompts/):
+   - Välj din roll
+   - Kopiera prompt från fil
+   - Klistra in i Copilot Chat
+   - Lägg till relevanta detaljer (mål, fil, issue, etc.)
+
+5. **När du är klar** — Kör `/router` för att välja nästa roll, eller gå direkt till nästa (se "Nästa steg" i din prompt).
+
+**Fullständig guide:** Se [CONTRIBUTING.md](CONTRIBUTING.md) för arbetsflöde, grindar och best practices.
+
+---
+
 ## Prompts i repo
 
+- [\.github/prompts/router.prompt.md](.github/prompts/router.prompt.md) — **Börja här när du är osäker!**
 - [\.github/prompts/analyst.prompt.md](.github/prompts/analyst.prompt.md)
 - [\.github/prompts/architect.prompt.md](.github/prompts/architect.prompt.md)
 - [\.github/prompts/planner.prompt.md](.github/prompts/planner.prompt.md)

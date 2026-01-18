@@ -11,3 +11,7 @@ Förväntat output:
 - Konkreta filändringar (lista + kort beskrivning)
 - Kort verifiering (hur man testar lokalt)
 - Eventuella antaganden/begränsningar
+
+Nästa steg:
+→ **Router** för att välja rätt nästa roll när ett steg är implementerat och Gate D är uppfylld.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.

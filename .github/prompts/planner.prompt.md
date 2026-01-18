@@ -10,3 +10,7 @@ Primär prompt:
 Förväntat output:
 - Checklista över steg (5–10)
 - Varje steg: mål + verifiering + beroenden
+
+Nästa steg:
+→ **Router** för att välja rätt nästa roll när denna plan är godkänd av Gate C.
+Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.
