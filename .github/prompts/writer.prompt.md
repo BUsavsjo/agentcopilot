@@ -13,4 +13,21 @@ Förväntat output:
 
 Nästa steg:
 → **Router** för nästa iteration eller direkt **Merge till dev/main** när all dokumentation är uppdaterad och Gate G är uppfylld.
-Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md). (Valfritt: Data Analyst kan köra i parallell för effektanalys.)
+Se [router.prompt.md](router.prompt.md). (Valfritt: Data Analyst kan köra i parallell för effektanalys.)
+
+# Refactored memory read/write logic
+from utils.memory_utils import read_memory, append_to_history, update_current_state, clean_history
+
+# Example usage
+memory = read_memory()
+print(f"Current state: {memory['now']}")
+
+entry = {"type": "change", "summary": "<kort doc-sammanfattning här>"}
+append_to_history(entry)
+
+# Update current state
+new_state = {"current_step": "Docs updated", "status": "ready"}
+update_current_state(new_state)
+
+# Add logic to clean history and move to milestone
+clean_history()

@@ -14,4 +14,18 @@ Förväntat output:
 
 Nästa steg:
 → **Router** för att välja rätt nästa roll när QA är godkänd av Gate E.
-Se [`.github/prompts/router.prompt.md`](.github/prompts/router.prompt.md) för situationsbaserad rolväljning.
+Se [router.prompt.md](router.prompt.md) för situationsbaserad rolväljning.
+
+from utils.memory_utils import read_memory, append_to_history, update_current_state
+
+# Example usage
+memory = read_memory()
+print(f"Current state: {memory['now']}")
+
+# Replace with the actual verification summary per run
+entry = {"type": "qa", "summary": "<kort verifiering här>"}
+append_to_history(entry)
+
+# Update current state
+new_state = {"current_step": "QA completed", "status": "verified"}
+update_current_state(new_state)

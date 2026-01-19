@@ -198,40 +198,95 @@ Du är fri att använda, modifiera och distribuera denna mall i privata och komm
 
 ---
 
-## Appendix: Slash‑kommandon
+## SharedKnowledge Class
 
-De flesta VS Code Copilot Chat‑versioner stöder enkla slash‑kommandon kombinerat med kontext‑referenser.
+### Purpose
+The `SharedKnowledge` class is designed to manage shared files within the project. It provides methods for uploading, listing, and retrieving files stored in the `docs/knowledge` directory.
 
-**Vanliga kommandon:**
-- `/explain`: Förklara
-- `/fix`: Föreslå ändringar
-- `/tests`: Generera/verifiera tester
-- `/help`: Lista stödda kommandon
+### Usage
+```python
+from scripts.shared_knowledge import SharedKnowledge
 
-**Kontext‑referenser:**
-- `@workspace`: Helhetskontxt om repo
-- `@editor`: Aktuell fil (use `#selection` för markerad kod)
-- `@terminal`: Senaste terminaloutput
+# Initialize the class
+knowledge = SharedKnowledge()
 
-### Exempel per roll
+# Upload a file
+uploaded_path = knowledge.upload_file("example.txt")
+print(f"File uploaded to: {uploaded_path}")
 
-**Analyst:**
-- `/explain @workspace Agera som Product/Technical Analyst. Sammanfatta nuläget och lista risker/oklarheter/teknisk skuld. Ingen kod.`
+# List all files
+files = knowledge.list_files()
+print("Files in storage:", files)
 
-**Architect:**
-- `/explain @workspace Agera som Software Architect. Föreslå minsta hållbara förändring med riktning + avgränsningar och motivering. Ingen implementation.`
+# Retrieve a file
+file_path = knowledge.retrieve_file("example.txt")
+print(f"File retrieved at: {file_path}")
+```
 
-**Planner:**
-- `/explain @workspace Agera som Project Planner. Bryt riktningen till 5–10 små, verifierbara steg (Mål/Verifiering/Beroenden). Ingen kod.`
+---
 
-**Engineer:**
-- `/fix @editor #selection Agera som Software Engineer. Implementera steg N. Föreslå minimal diff och lista filer som ändras + verifikationssteg.`
+## Timer Feature
 
-**QA:**
-- `/tests @workspace Agera som QA. Föreslå verifieringsstep (tester/lint/syntax) och bedöm regressionsrisk. Ingen kodändring.`
+### Overview
+The timer feature includes the following components:
+- **`timer.html`**: A web page with an analog clock, digital timer, and control buttons.
+- **`timer.css`**: Styles for the timer interface.
+- **`timer.js`**: JavaScript logic for managing the timer and drawing the clock.
 
-**Reviewer:**
-- `/explain @workspace Agera som Code Reviewer. Bedöm struktur/läsbarhet/lämplighet och ge Go/No‑go.`
+### Testing the Timer
+1. Open `timer.html` in a web browser.
+2. Use the slider to set the timer duration.
+3. Click "Start" to begin the countdown.
+4. Verify that the analog clock and digital display update correctly.
+5. Ensure the alarm sound plays when the timer reaches zero.
 
-**Writer:**
-- `/explain @workspace Agera som Technical Writer. Föreslå dokumentationsuppdateringar baserat på senaste ändringen.`
+---
+
+## Uppdateringar i `memory_utils.py`
+
+### Nya funktioner
+
+#### `append_to_history`
+- **Syfte**: Lägger till en post i projektets historik och säkerställer att historikens storlek inte överskrider den maximala gränsen.
+- **Exempel**:
+  ```python
+  from utils.memory_utils import append_to_history
+
+  entry = {"type": "qa", "summary": "QA verified feature X."}
+  append_to_history(entry)
+  ```
+
+#### `update_current_state`
+- **Syfte**: Uppdaterar den aktuella statusen i `project.memory.json`.
+- **Exempel**:
+  ```python
+  from utils.memory_utils import update_current_state
+
+  new_state = {"current_step": "Steg 2", "status": "pågående"}
+  update_current_state(new_state)
+  ```
+
+---
+
+## Placeholder Scripts in `package.json`
+
+### Overview
+The `package.json` file includes placeholder scripts for `test` and `lint`. These scripts currently output placeholder messages and should be replaced with actual commands.
+
+### How to Update
+1. Install the necessary libraries:
+   ```bash
+   npm install --save-dev jest eslint
+   ```
+2. Update the `scripts` section:
+   ```json
+   "scripts": {
+     "test": "jest",
+     "lint": "eslint ."
+   }
+   ```
+3. Run the scripts:
+   ```bash
+   npm run test
+   npm run lint
+   ```
