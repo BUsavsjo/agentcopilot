@@ -317,7 +317,7 @@ Analyserar effekt av ändring (performance, användarmönster, fel) för valider
 Använd denna prompt i Copilot Chat:
 
 ```
-/data-analyst Analysera effekten av denna ändring: [länk eller beskrivning]. Vilka KPIs påverkas? Vad säger data?
+/data-analyst Analysera effekten av denna ändring: [länk eller beskrivning]. Vilka KPIS påverkas? Vad säger data?
 ```
 
 Alternativt, manuell analys:
@@ -406,3 +406,93 @@ Se även:
 - [COPILOT_PROMPTS.md](COPILOT_PROMPTS.md) — Prompt-templates
 - [.github/prompts/](../.github/prompts/) — Prompt-filer för varje roll
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — Bidragarguide
+
+---
+
+# Memory Policy
+
+## History Rules
+- **Maximum Size:** The `history` array in `project.memory.json` is limited to 50 entries.
+- **Entry Format:** Each entry in `history` must follow this format:
+  - `date`: ISO 8601 date string.
+  - `type`: One of `change`, `qa`, or `review`.
+  - `summary`: A brief description (1–2 sentences).
+- **Roles Allowed to Write:**
+  - `Engineer`: Logs changes made to the system.
+  - `QA`: Logs verification results and identified risks.
+  - `Reviewer`: Logs feedback or code review notes.
+
+## Writer Responsibility
+- The Writer role is responsible for performing a **Memory Sweep** after each completed step:
+  - Compress the `history` array into a `milestone`.
+  - Clear the `history` array after compression.
+
+### Example Workflow
+1. **Before Memory Sweep:**
+   ```json
+   "history": [
+     {
+       "date": "2026-01-19T12:00:00Z",
+       "type": "change",
+       "summary": "Updated the memory policy documentation."
+     },
+     {
+       "date": "2026-01-19T13:00:00Z",
+       "type": "qa",
+       "summary": "Verified memory policy implementation."
+     }
+   ]
+   ```
+
+2. **After Memory Sweep:**
+   ```json
+   "milestones": [
+     {
+       "summary": "Compressed milestone from history.",
+       "details": [
+         {
+           "date": "2026-01-19T12:00:00Z",
+           "type": "change",
+           "summary": "Updated the memory policy documentation."
+         },
+         {
+           "date": "2026-01-19T13:00:00Z",
+           "type": "qa",
+           "summary": "Verified memory policy implementation."
+         }
+       ]
+     }
+   ]
+   ```
+
+3. **Cleared History:**
+   ```json
+   "history": []
+   ```
+
+## Memory System Interactions
+
+#### Example: Engineer Role
+- Reads the current state from memory:
+  ```python
+  from utils.memory_utils import read_memory
+  memory = read_memory()
+  print(memory['now'])
+  ```
+- Appends a history entry:
+  ```python
+  from utils.memory_utils import append_to_history
+  entry = {"type": "change", "summary": "Implemented feature X."}
+  append_to_history(entry)
+  ```
+
+#### Example: Writer Role
+- Reads memory to compress history into milestones:
+  ```python
+  memory = read_memory()
+  milestones = memory['milestones']
+  ```
+- Clears history after creating a milestone:
+  ```python
+  memory['history'] = []
+  ```

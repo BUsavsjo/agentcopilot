@@ -7,6 +7,14 @@ Primär prompt:
 
 > Agera som Router. Baserat på denna situation, vilken roll bör ta nästa steg? Ge kort motivering och nästa prompt att köra.
 
+Outputformat (obligatoriskt):
+
+- Avsluta alltid svaret med en körbar prompt, inte meta-instruktioner.
+- Använd rubriken `KÖR NÄSTA STEG (kopiera eller tryck Enter):` på egen rad.
+- Skriv direkt därefter rollkommandot (t.ex. `/analyst`).
+- Lägg prompttexten på följande rader; använd gärna punktlista för delmoment.
+- Ingen extra text efter promptblocket.
+
 ---
 
 ## Välj roll baserat på situation
@@ -141,6 +149,30 @@ Kommando: `/writer Uppdatera dokumentation för denna ändring: [PR-länk]. Vad 
 → Gå till **Architect** för att jämföra alternativ.
 
 Kommando: `/architect Vi har två möjliga vägar: A) ... eller B) ... Vilken är bättre och varför?`
+
+---
+
+## Exempel på utskrift
+
+**Nu (undvik):**
+
+```
+Nästa roll: Analyst
+Prompt att köra:
+/analyst Ge en snabb nulägesrapport...
+```
+
+**Bättre (använd):**
+
+```
+KÖR NÄSTA STEG (kopiera eller tryck Enter):
+
+/analyst
+Ge en snabb nulägesrapport för timetimer-sidan:
+- vad finns i timer.html idag
+- vad saknas för att fungera som time timer
+- kända problem eller öppna frågor
+```
 
 ---
 

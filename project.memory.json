@@ -1,0 +1,41 @@
+{
+  "now": {
+    "current_step": "Validera minnesfunktioner",
+    "current_goal": "Integrera minnessystemet enligt plan."
+  },
+  "rules": {
+    "max_history": 50,
+    "history_entry_limit": "1-2 sentences",
+    "todos_milestones_editors": ["Planner", "Writer"],
+    "history_entry_format": {
+      "date": "ISO 8601 date string",
+      "type": "One of 'change', 'qa', 'review'",
+      "summary": "A brief description (1–2 sentences)"
+    }
+  },
+  "commands": {
+    "run_tests": {
+      "description": "Run all unit tests.",
+      "command": "npm test"
+    },
+    "lint_code": {
+      "description": "Lint the codebase.",
+      "command": "npm run lint"
+    }
+  },
+  "todos": [
+    {
+      "id": 1,
+      "status": "completed",
+      "title": "Plan steps to verify prompt flow delivery"
+    }
+  ],
+  "milestones": [],
+  "history": [
+    {
+      "date": "2026-01-19",
+      "type": "change",
+      "summary": "Updated documentation to include recent changes: prompt flow plan, QA verification, and code review feedback."
+    }
+  ]
+}

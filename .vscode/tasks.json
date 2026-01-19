@@ -4,15 +4,8 @@
     {
       "label": "Doctor",
       "type": "shell",
-      "command": "${workspaceFolder}/scripts/doctor.ps1",
-      "windows": {
-        "command": "powershell",
-        "args": ["-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/doctor.ps1"]
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/doctor.ps1"],
       "presentation": {
         "reveal": "always",
         "panel": "new"
@@ -88,22 +81,13 @@
     },
     {
       "label": "QA",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "qa"],
-      "windows": {
-        "command": "npm.cmd"
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": ["$eslint-stylish"],
-      "dependsOn": ["Test", "Lint"]
+      "dependsOn": ["Test", "Lint"],
+      "problemMatcher": []
+    },
+    {
+      "label": "All",
+      "dependsOn": ["Doctor", "QA"],
+      "problemMatcher": []
     }
   ]
 }
