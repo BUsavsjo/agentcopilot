@@ -2,90 +2,18 @@
   "metadata": {
     "project": "agentcopilot",
     "started": "2026-01-20",
-    "branch": "feature-minneoptimera",
+    "branch": "main",
     "description": "Rollbaserat arbetsflöde med delat projektminne",
     "last_archived": "2026-01-20"
   },
   "now": {
-    "current_step": "reviewer",
-    "current_goal": "Granskat steg 5 för merge",
-    "status": "approved"
+    "current_step": "analyst",
+    "current_goal": "Starta nytt projekt",
+    "status": "not-started"
   },
-  "backlog": [
-    {
-      "id": 1,
-      "title": "Lägg till en knapp för temaväxling",
-      "status": "completed",
-      "verification": "Knappen syns på sidan och är klickbar",
-      "dependencies": [],
-      "completed_by": "engineer",
-      "verified": true,
-      "documentation_completed": false,
-      "notes": "Knappen för temaväxling i timer.html har verifierats och fungerar korrekt."
-    },
-    {
-      "id": 2,
-      "title": "Strukturera CSS för temaväxling",
-      "status": "completed",
-      "verification": "CSS-klasser för dark och light mode är definierade",
-      "dependencies": [1],
-      "completed_by": "engineer",
-      "verified": true,
-      "documentation_completed": false,
-      "notes": "Använd separata klasser för dark och light mode"
-    },
-    {
-      "id": 3,
-      "title": "Implementera JavaScript för temaväxling",
-      "status": "completed",
-      "verification": "Knappen växlar mellan dark och light mode",
-      "dependencies": [1, 2],
-      "completed_by": "engineer",
-      "verified": true,
-      "documentation_completed": false,
-      "notes": "JavaScript ska toggla CSS-klasser baserat på knapptryck"
-    },
-    {
-      "id": 4,
-      "title": "Testa temaväxling",
-      "status": "not-started",
-      "verification": "Dark och light mode fungerar utan buggar",
-      "dependencies": [3],
-      "completed_by": null,
-      "verified": false,
-      "documentation_completed": false,
-      "notes": "Testa i olika webbläsare och skärmstorlekar"
-    },
-    {
-      "id": 5,
-      "title": "Uppdatera dokumentation för temaväxling",
-      "status": "completed",
-      "verification": "README och inline-kommentarer är uppdaterade",
-      "dependencies": [4],
-      "completed_by": "engineer",
-      "verified": true,
-      "documentation_completed": true,
-      "notes": "Beskriv hur temaväxlingen fungerar och hur den kan ändras"
-    }
-  ],
-  "history": [
-    {
-      "date": "2026-01-20T14:30:00Z",
-      "role": "reviewer",
-      "step": "review",
-      "summary": "Granskad: Go för merge av steg 5. Dokumentation verifierad."
-    }
-  ],
-  "milestones": [
-    {
-      "date": "2026-01-20",
-      "summary": "Completed workflow for temaväxling feature."
-    },
-    {
-      "date": "2026-01-20",
-      "summary": "Granskad och verifierad dokumentation för temaväxling."
-    }
-  ],
+  "backlog": [],
+  "history": [],
+  "milestones": [],
   "rules": {
     "max_history": 50,
     "flow": "analyst → architect → planner → engineer → qa → reviewer → writer",
