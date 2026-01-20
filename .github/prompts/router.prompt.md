@@ -154,9 +154,24 @@ Planeraren bryter ned arkitekturplanen i små, verifierbara steg.
 ### 💻 Du har plan — Implementera!
 
 **Situation:** "Planeraren har gjort steg-lista. Jag är redo att koda."
-→ **Implementering: Engineer** (`/engineer`)
 
-Ingenjören implementerar ett steg i taget enligt planen.
+→ **Standard: Engineer** (`/engineer`)
+Använd när:
+- ändringen påverkar flera delar av systemet
+- risken för regression är hög
+- du vill ha små, säkra iterationer
+
+→ **Snabbspår: Engineer (Fast Track)** (`/engineer-fast-track`)
+Använd när:
+- ändringen är lokal (samma modul/område)
+- inga nya designbeslut behövs
+- 1–3 backlogsteg kan batchas till ett testbart delresultat
+- du kan verifiera lokalt direkt
+
+Ingenjören implementerar enligt planen och redovisar:
+- vilka filer som ändrats
+- hur man verifierar lokalt
+- vilka steg som blev klara
 
 ---
 
@@ -217,6 +232,7 @@ Memory Curator rensar historik, komprimerar till milstolpar och uppdaterar metad
 | **Tester OK** | Reviewer | `/reviewer` |
 | **Review OK** | Writer | `/writer` |
 | **Merge klar** | Data Analyst (opt) | `/data-analyst` |
+| **Historik tung** | Memory Curator | `/memory-curator` |
 
 ---
 
@@ -301,6 +317,7 @@ Ge en snabb nulägesrapport för timetimer-sidan:
 6. /reviewer — Granska innan merge
 7. /writer — Uppdatera dokumentation
 8. /data-analyst — Mät effekt (valfritt)
+9. /memory-curator — Arkivera historik och lärdomar
 ```
 
 ### Scenario 2: Bug-fix eller små ändringar

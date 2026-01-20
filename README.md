@@ -393,3 +393,22 @@ För att säkerställa enhetliga uppdateringar av `project.memory.json` används
 - **Script/Task**: Ett script eller en task applicerar uppdateringarna på `project.memory.json` baserat på detta format.
 
 Se till att följa detta format för att säkerställa konsistens och spårbarhet i projektet.
+
+---
+
+## Ny roll: Fast Engineer
+
+**Vad gör Fast Engineer?**
+Fast Engineer är en specialiserad roll för att snabbt implementera små, lokala ändringar utan att behöva gå igenom hela design- eller planeringsprocessen. Den används när ändringar är begränsade till en modul eller ett område och kan verifieras direkt.
+
+### När används rollen?
+- När ändringen är lokal och påverkar en specifik modul eller komponent.
+- När inga nya designbeslut behövs.
+- När 1–3 backlogsteg kan batchas till ett testbart delresultat.
+
+### Hur används rollen?
+1. Kör `/engineer-fast-track` i Copilot Chat.
+2. Följ prompten i [engineer.prompt.md](.github/prompts/engineer.prompt.md).
+3. Implementera ändringen och verifiera lokalt.
+
+Se även [docs/ROLES.md](docs/ROLES.md) och [docs/WORKFLOW.md](docs/WORKFLOW.md) för detaljer.

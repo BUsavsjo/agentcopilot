@@ -68,7 +68,14 @@
       "notes": "Beskriv hur temaväxlingen fungerar och hur den kan ändras"
     }
   ],
-  "history": [],
+  "history": [
+    {
+      "date": "2026-01-20T14:30:00Z",
+      "role": "reviewer",
+      "step": "review",
+      "summary": "Granskad: Go för merge av steg 5. Dokumentation verifierad."
+    }
+  ],
   "milestones": [
     {
       "date": "2026-01-20",
