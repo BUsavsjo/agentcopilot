@@ -237,6 +237,43 @@ Denna roll granskar ändringar ur ett helhetsperspektiv: risk, struktur och läm
 
 ---
 
+## Memory Curator
+
+**Mandat:**
+- Städa och arkivera projektminnet för att säkerställa att endast relevant information sparas för framtida lärdomar.
+
+**Ansvar:**
+- Komprimera `history` till milstolpar.
+- Ta bort irrelevanta eller duplicerade poster.
+- Uppdatera metadata för att reflektera arkiveringsdatum.
+
+**Input:**
+- `project.memory.json`
+
+**Output:**
+- Uppdaterad `project.memory.json` med rensad historik och nya milstolpar.
+
+---
+
+## Fast Engineer
+
+**Mandat:**
+- Implementera en batch av steg (1–3) som hör ihop och kan verifieras lokalt.
+
+**Ansvar:**
+- Håll dig inom planens scope (ingen ny design).
+- Minimera spridning av ändringar (helst samma område/modul).
+- Lägg till/uppdatera tester om det är rimligt.
+
+**Input:**
+- `project.memory.json`
+
+**Output:**
+- Uppdaterad backlog med slutförda steg.
+- Historikpost som beskriver batchen.
+
+---
+
 ## Avslutande princip
 
 > **Samma person kan bära alla roller – men aldrig samtidigt.**

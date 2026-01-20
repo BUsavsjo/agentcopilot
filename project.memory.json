@@ -3,12 +3,13 @@
     "project": "agentcopilot",
     "started": "2026-01-20",
     "branch": "feature-minneoptimera",
-    "description": "Rollbaserat arbetsflöde med delat projektminne"
+    "description": "Rollbaserat arbetsflöde med delat projektminne",
+    "last_archived": "2026-01-20"
   },
   "now": {
-    "current_step": "merge",
-    "current_goal": "Förbered för merge och arkivering av projektminne",
-    "status": "completed"
+    "current_step": "reviewer",
+    "current_goal": "Granskat steg 5 för merge",
+    "status": "approved"
   },
   "backlog": [
     {
@@ -62,107 +63,20 @@
       "verification": "README och inline-kommentarer är uppdaterade",
       "dependencies": [4],
       "completed_by": "engineer",
-      "verified": false,
+      "verified": true,
       "documentation_completed": true,
       "notes": "Beskriv hur temaväxlingen fungerar och hur den kan ändras"
     }
   ],
-  "history": [
+  "history": [],
+  "milestones": [
     {
-      "date": "2026-01-20T14:30:00Z",
-      "role": "planner",
-      "step": "planning",
-      "summary": "Plan skapad med 5 steg."
+      "date": "2026-01-20",
+      "summary": "Completed workflow for temaväxling feature."
     },
     {
-      "date": "2026-01-20T14:35:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Implementerade steg 1: Lagt till en knapp för temaväxling."
-    },
-    {
-      "date": "2026-01-20T14:40:00Z",
-      "role": "qa",
-      "step": "verification",
-      "summary": "Verifierade steg 1: Knappen syns inte på sidan."
-    },
-    {
-      "date": "2026-01-20T15:00:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Åtgärdade knappens synlighet i steg 1."
-    },
-    {
-      "date": "2026-01-20T15:10:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Lade till knappen för temaväxling i steg 1."
-    },
-    {
-      "date": "2026-01-20T15:20:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Lade till knappen för temaväxling i timer.html."
-    },
-    {
-      "date": "2026-01-20T15:30:00Z",
-      "role": "qa",
-      "step": "verification",
-      "summary": "Verifierade steg 1: Knappen för temaväxling i timer.html fungerar korrekt."
-    },
-    {
-      "date": "2026-01-20T14:45:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Implementerade steg 2: CSS-klasser för dark och light mode."
-    },
-    {
-      "date": "2026-01-20T14:55:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Implementerade steg 3: JavaScript för att toggla temaväxling."
-    },
-    {
-      "date": "2026-01-20T16:00:00Z",
-      "role": "qa",
-      "step": "verification",
-      "summary": "Verifierade steg 3: JavaScript för temaväxling fungerar korrekt. Inga regressioner upptäckta."
-    },
-    {
-      "date": "2026-01-20T16:15:00Z",
-      "role": "qa",
-      "step": "verification",
-      "summary": "Verifierade steg 4: Temaväxling fungerar korrekt i olika webbläsare och skärmstorlekar."
-    },
-    {
-      "date": "2026-01-20T16:30:00Z",
-      "role": "engineer",
-      "step": "implementation",
-      "summary": "Uppdaterade dokumentation för temaväxling i README.md."
-    },
-    {
-      "date": "2026-01-20T16:45:00Z",
-      "role": "reviewer",
-      "step": "review",
-      "summary": "Granskad: Steg 5 dokumentation för temaväxling är godkänd för merge."
-    },
-    {
-      "date": "2026-01-20T15:00:00Z",
-      "role": "router",
-      "step": "transition",
-      "summary": "Transitioned to Writer role to finalize documentation for Step 5."
-    },
-    {
-      "date": "2026-01-20T15:15:00Z",
-      "role": "writer",
-      "step": "documentation",
-      "summary": "Dokumentation markerad som klar för steg 5 i demo-flödet."
-    },
-    {
-      "date": "2026-01-20T15:30:00Z",
-      "role": "router",
-      "step": "transition",
-      "summary": "Workflow completed. Preparing for merge and memory archiving."
+      "date": "2026-01-20",
+      "summary": "Granskad och verifierad dokumentation för temaväxling."
     }
   ],
   "rules": {

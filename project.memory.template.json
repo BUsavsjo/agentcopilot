@@ -3,7 +3,8 @@
     "project": "agentcopilot",
     "started": "2026-01-20",
     "branch": "feature-branch",
-    "description": "Rollbaserat arbetsflöde med delat projektminne"
+    "description": "Rollbaserat arbetsflöde med delat projektminne",
+    "last_archived": null
   },
   "now": {
     "current_step": "not-started",
@@ -24,9 +25,10 @@
     }
   ],
   "history": [],
+  "milestones": [],
   "rules": {
     "max_history": 50,
-    "flow": "analyst → architect → planner → engineer → qa → reviewer → writer",
+    "flow": "analyst → architect → planner → engineer → qa → reviewer → writer → memory-curator",
     "memory_location": "project.memory.json i projektrotens rot"
   }
 }

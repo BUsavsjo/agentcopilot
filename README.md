@@ -126,6 +126,24 @@ För detaljerade kommandon, se [Appendix: Slash‑kommandon](#appendix-slash-kom
 
 ---
 
+## Ny roll: Memory Curator
+
+**Vad gör Memory Curator?**
+Memory Curator ansvarar för att städa och arkivera projektminnet när ett arbetsflöde är slutfört. Detta säkerställer att historiken är komprimerad och att endast relevant information sparas för framtida lärdomar.
+
+### När används rollen?
+- Efter att Writer har slutfört dokumentationen och projektet är redo att arkiveras.
+
+### Hur används rollen?
+1. Kör `/memory-curator` i Copilot Chat.
+2. Följ prompten i [memory-curator.prompt.md](.github/prompts/memory-curator.prompt.md).
+3. Kontrollera att `project.memory.json` är uppdaterad med:
+   - Komprimerad historik i `milestones`.
+   - Rensad och validerad `history`.
+   - Uppdaterad metadata med senaste arkiveringsdatum.
+
+Se även [docs/ROLES.md](docs/ROLES.md) och [docs/WORKFLOW.md](docs/WORKFLOW.md) för detaljer.
+
 ## Rollspecifika promptar (redo att klistra in)
 
 - Analyst:

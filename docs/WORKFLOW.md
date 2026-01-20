@@ -44,6 +44,20 @@ Arbetet sker i tydliga faser där varje fas har ett specifikt mål, in-/utdata o
    - Mål: Dra korrekta slutsatser från data.
    - Leverabel: Observationer, mönster, avvikelser, antaganden och nästa analyssteg.
 
+9. Memory Curator
+   - Mål: Förbereda projektet för arkivering.
+   - Leverabel: Komprimerad historik, uppdaterad metadata.
+
+### Fast Engineer
+
+**När:** När flera små steg kan implementeras tillsammans utan nya designbeslut.
+
+**Vad:**
+- Implementerar en batch av steg (1–3) som hör ihop och kan verifieras lokalt.
+
+**Nästa steg:**
+- QA verifierar batchen.
+
 ---
 
 ## Kvalitetsgrindar (gates)
@@ -55,6 +69,7 @@ Arbetet sker i tydliga faser där varje fas har ett specifikt mål, in-/utdata o
 - Gate E (efter QA): Är risk acceptabel och kontrollerad av tester/lint? Om inte, åtgärda.
 - Gate F (Reviewer): Är ändringen redo för merge enligt repo-policy? Om inte, justera.
 - Gate G (Writer): Är docs uppdaterat och användbart? Om inte, komplettera.
+- Gate H (Curator): Är projektet klart för arkivering och framtida referens? Om inte, åtgärda.
 
 ---
 

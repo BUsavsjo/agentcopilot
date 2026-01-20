@@ -133,7 +133,7 @@ Analytikern läser och sammanfattar nuläget innan något annat görs.
 
 ---
 
-### 🏗️ Du har en nulägesanalys — Vad ska vi göra?
+### 🏗️ Arkitektur — Föreslå riktning
 
 **Situation:** "Analytikern har gjort rapport. Vad är nästa steg?"
 → **Arkitekten: Architect** (`/architect`)
@@ -193,6 +193,15 @@ Skribenten uppdaterar README, docs och inline-kommentarer.
 → **Analys: Data Analyst** (`/data-analyst`)
 
 Data Analyst mäter och rapporterar effekt (parallell roll, efter Engineer).
+
+---
+
+### 🔄 Arkivera minnet — Rensa och spara lärdomar
+
+**Situation:** "Projektet har mycket historik. Vi behöver städa och arkivera."
+→ **Memory Curator: Memory Curator** (`/memory-curator`)
+
+Memory Curator rensar historik, komprimerar till milstolpar och uppdaterar metadata.
 
 ---
 
