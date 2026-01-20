@@ -17,6 +17,109 @@ Outputformat (obligatoriskt):
 
 ---
 
+## Innan du börjar
+
+1. **Öppna** `project.memory.json` i projektets rot
+2. **Om memory saknas**: Kör `.\scripts\init-memory.ps1` för att skapa den
+3. **Läs** `now.current_step` och `now.status` — vilket steg är aktivt?
+4. **Berätta användaren** vilket steg vi är på baserat på memory-status
+
+---
+
+## Memory-strukturen — gemensamt projekt-minne
+
+Alla roller läser och uppdaterar `project.memory.json`. Det är sanningskällan för flödet.
+
+### Struktur (se `project.memory.template.json`)
+
+```json
+{
+  "metadata": {
+    "project": "projektnamn",
+    "started": "2026-01-20",
+    "branch": "feature-branch",
+    "description": "Kort beskrivning"
+  },
+  "now": {
+    "current_step": "analyst|architect|planner|engineer|qa|reviewer|writer|data-analyst",
+    "current_goal": "Vad gör vi nu?",
+    "status": "not-started|in-progress|completed|blocked"
+  },
+  "backlog": [
+    {
+      "id": 1,
+      "title": "Steg 1: Titel",
+      "status": "not-started|in-progress|completed",
+      "verification": "Hur vet vi att det är klart?",
+      "dependencies": [],
+      "completed_by": null,
+      "verified": false,
+      "documentation_completed": false,
+      "notes": ""
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-01-20T14:30:00Z",
+      "role": "analyst|architect|planner|engineer|qa|reviewer|writer|data-analyst",
+      "step": "analysis|architecture|planning|implementation|verification|review|documentation|data-analysis",
+      "summary": "Vad gjordes?"
+    }
+  ],
+  "rules": {
+    "max_history": 50,
+    "flow": "analyst → architect → planner → engineer → qa → reviewer → writer"
+  }
+}
+```
+
+### Roller och memory-ansvar
+
+- **Analyst** → Uppdaterar `now.status` till "completed", fyller `history` med nulägesanalys
+- **Architect** → Uppdaterar `now.step` till "architect", fyller `history` med arkitekturrekommendation
+- **Planner** → Fyller `backlog` med steg, uppdaterar `now.step` till "planner"
+- **Engineer** → Uppdaterar `backlog[N].status` till "completed", fyller `history` med implementation
+- **QA** → Uppdaterar `backlog[N].verified` till true/false, fyller `history` med verifieringsresultat
+- **Reviewer** → Uppdaterar `now.status` till "approved"/"needs_revision", fyller `history` med granskningsresultat
+- **Writer** → Uppdaterar `backlog[N].documentation_completed` till true, fyller `history` med dokumentationsändringar
+- **Data-Analyst** → Fyller `history` med dataanalysresultat (parallell roll)
+
+### Flödesdiagram
+
+```
+START → init-memory.ps1 → project.memory.json skapas
+  ↓
+Analyst läser memory (tom) → analyserar → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar Architect
+  ↓
+Architect läser memory (Analyst klar) → föreslår riktning → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar Planner
+  ↓
+Planner läser memory → skapar backlog → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar Engineer
+  ↓
+Engineer läser backlog → implementerar steg 1 → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar QA
+  ↓
+QA läser backlog → verifierar steg 1 → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar Reviewer
+  ↓
+Reviewer läser history → granskar → uppdaterar memory
+  ↓
+Router läser memory → rekommenderar Writer
+  ↓
+Writer läser history → dokumenterar → uppdaterar memory
+  ↓
+MERGE → Arkivera memory → Nytt projekt
+```
+
+---
+
 ## Välj roll baserat på situation
 
 Använd denna guide för att snabbt identifiera rätt roll:

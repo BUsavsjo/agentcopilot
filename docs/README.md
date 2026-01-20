@@ -45,3 +45,20 @@ Router hjälper dig att diagnostisera situationen och rekommendera nästa steg.
 - Länka alltid till specifika filer eller sektioner i chatten för fokus.
 - Håll varje steg litet och verifierbart.
 - Terminalen och Git är den slutliga sanningen.
+
+---
+
+## Temaväxling
+
+### Funktionalitet
+- En knapp för att växla mellan Dark Mode och Light Mode har implementerats.
+- CSS-klasser används för att definiera teman.
+- JavaScript hanterar knapptryck och uppdaterar temat dynamiskt.
+
+### Testning
+- Temaväxlingen har verifierats i olika webbläsare och skärmstorlekar.
+- Inga buggar eller regressioner upptäcktes under QA-processen.
+
+### Anpassning
+- För att ändra färger, uppdatera klasserna `.dark-mode` och `.light-mode` i `timer.css`.
+- JavaScript-logiken finns i `timer.js` och kan utökas vid behov.

@@ -3,6 +3,8 @@
         "/^& \"C:/Users/petwen/OneDrive - Höglandsförbundet/Projekt/agentcopilot/\\.venv/Scripts/python\\.exe\" -m pytest tests/test_memory_utils\\.py$/": {
             "approve": true,
             "matchCommandLine": true
-        }
+        },
+        "pytest": true,
+        "start": true
     }
 }

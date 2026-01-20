@@ -103,3 +103,62 @@ def update_current_state(new_state: Dict[str, Any]) -> None:
 
     memory['now'] = new_state
     write_memory(memory)
+
+# Why: Allows for dynamic updates to the todos section, enabling task management directly through memory file edits.
+def update_todos(memory_file_path, new_todo):
+    """
+    Update the todos section in the memory file with a new todo.
+
+    Args:
+        memory_file_path (str): Path to the memory file (project.memory.json).
+        new_todo (dict): The new todo to add, with keys 'id', 'status', and 'title'.
+
+    Returns:
+        bool: True if the update was successful, False otherwise.
+    """
+    # Helper function to validate the new_todo structure
+    def is_valid_todo(todo):
+        required_keys = {"id", "status", "title"}
+        if not required_keys.issubset(todo.keys()):
+            return False, "Missing required fields."
+        if not isinstance(todo["id"], int):
+            return False, "Invalid type for 'id'. Expected int."
+        if not isinstance(todo["status"], str):
+            return False, "Invalid type for 'status'. Expected str."
+        if not isinstance(todo["title"], str):
+            return False, "Invalid type for 'title'. Expected str."
+        return True, None
+
+    try:
+        # Validate the new_todo structure
+        is_valid, error_message = is_valid_todo(new_todo)
+        if not is_valid:
+            print(f"Error: {error_message}")
+            return False
+
+        # Read the current memory file
+        with open(memory_file_path, 'r') as file:
+            memory = json.load(file)
+
+        # Ensure the todos list exists
+        todos = memory.setdefault("todos", [])
+
+        # Check for duplicate IDs
+        if any(todo["id"] == new_todo["id"] for todo in todos):
+            print("Error: Duplicate ID detected in new_todo.")
+            return False
+
+        # Add the new todo to the todos list
+        todos.append(new_todo)
+
+        # Write the updated memory back to the file
+        with open(memory_file_path, 'w') as file:
+            json.dump(memory, file, indent=4)
+
+        return True
+    except json.JSONDecodeError:
+        print("Error: Failed to decode JSON from memory file.")
+        return False
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return False

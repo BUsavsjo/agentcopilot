@@ -50,3 +50,31 @@ input[type="range"] {
     width: 100%;
     margin: 20px 0;
 }
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container.dark-mode {
+    background: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1.dark-mode {
+    color: #ffffff;
+}
+
+#display.dark-mode {
+    color: #bbbbbb;
+}
+
+button.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+button.dark-mode:hover {
+    background-color: #555555;
+}

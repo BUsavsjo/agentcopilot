@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "project": "agentcopilot",
+    "started": "2026-01-20",
+    "branch": "feature-branch",
+    "description": "Rollbaserat arbetsflöde med delat projektminne"
+  },
+  "now": {
+    "current_step": "not-started",
+    "current_goal": "",
+    "status": "not-started"
+  },
+  "backlog": [
+    {
+      "id": 1,
+      "title": "Exempel: Initiera projektminne",
+      "status": "not-started",
+      "verification": "project.memory.json existerar och är valid JSON",
+      "dependencies": [],
+      "completed_by": null,
+      "verified": false,
+      "documentation_completed": false,
+      "notes": "Detta är ett exempel-steg. Planner fyller backlog med riktiga steg."
+    }
+  ],
+  "history": [],
+  "rules": {
+    "max_history": 50,
+    "flow": "analyst → architect → planner → engineer → qa → reviewer → writer",
+    "memory_location": "project.memory.json i projektrotens rot"
+  }
+}

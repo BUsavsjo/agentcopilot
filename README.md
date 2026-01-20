@@ -313,3 +313,65 @@ The `package.json` file includes placeholder scripts for `test` and `lint`. Thes
 ### Code Review
 - **Feedback**: Changes align with project goals and maintain quality standards.
 - **Decision**: Approved for merge.
+
+---
+
+## Memory Update-block Format
+
+För att säkerställa enhetliga uppdateringar av `project.memory.json` används ett JSON-baserat standardformat. Detta format används av alla roller för att beskriva ändringar i minnet.
+
+### Format
+```json
+{
+  "update": {
+    "now": {
+      "current_step": "Beskriv nuvarande steg",
+      "current_goal": "Beskriv nuvarande mål",
+      "status": "in-progress | completed | verified"
+    },
+    "todos": [
+      {
+        "id": 1,
+        "status": "not-started | in-progress | completed",
+        "title": "Beskriv todo"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-01-19T12:00:00Z",
+        "type": "change | qa | review",
+        "summary": "Kort beskrivning av ändring"
+      }
+    ]
+  },
+  "merge_strategy": "merge | overwrite"
+}
+```
+
+### Exempel
+**Scenario**: QA verifierar en ändring.
+```json
+{
+  "update": {
+    "now": {
+      "current_step": "QA completed",
+      "current_goal": "Verifiera att ändringen fungerar",
+      "status": "verified"
+    },
+    "history": [
+      {
+        "date": "2026-01-19T12:00:00Z",
+        "type": "qa",
+        "summary": "QA verifierade ändringen utan regressionsrisk."
+      }
+    ]
+  },
+  "merge_strategy": "merge"
+}
+```
+
+### Användning
+- **Roller**: Alla roller använder detta format för att beskriva sina uppdateringar.
+- **Script/Task**: Ett script eller en task applicerar uppdateringarna på `project.memory.json` baserat på detta format.
+
+Se till att följa detta format för att säkerställa konsistens och spårbarhet i projektet.

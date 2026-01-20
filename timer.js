@@ -127,6 +127,29 @@ resetBtn.addEventListener('click', resetTimer);
 // Initiera displayen
 updateDisplay();
 
+// Funktion för att toggla temaväxling
+function toggleTheme() {
+    const body = document.body;
+    const elements = document.querySelectorAll('.container, h1, #display, button');
+
+    body.classList.toggle('dark-mode');
+    elements.forEach(el => el.classList.toggle('dark-mode'));
+
+    // Uppdatera knappens text baserat på aktuellt tema
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (body.classList.contains('dark-mode')) {
+        themeToggleBtn.textContent = 'Växla till Light Mode';
+    } else {
+        themeToggleBtn.textContent = 'Växla till Dark Mode';
+    }
+}
+
+// Lägg till event listener för temaväxlingsknappen
+const themeToggleBtn = document.getElementById('theme-toggle');
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', toggleTheme);
+}
+
 // Testa och justera MVP
 // Kontrollera att alla funktioner fungerar som förväntat och justera eventuella buggar eller inkonsekvenser.
 
